@@ -15,9 +15,12 @@
 
 ----------------------------    ----------------------------   ------------------------- ------------------------------
 v0 Reboot: Just a quick reboot / refresher for python
---v1 Basic Pong: Created pong folder, made basic pong_main shows the following
+v1 Basic Pong: Created pong folder, made basic pong_main shows the following
                     - 2 respective pads to signify the "paddle"
                     - 1 circle in the middle to signify the "ball"
+--v1.5 Credit: Credit info for code to https://github.com/PSAB/pong-game/blob/master/Pong1.py
+                aka https://github.com/PSAB on basic tutorial making an interactive game of a classic
+
 
 
 
