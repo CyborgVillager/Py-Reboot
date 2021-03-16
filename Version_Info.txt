@@ -14,4 +14,11 @@
                | --------------------------- |
 
 ----------------------------    ----------------------------   ------------------------- ------------------------------
---v0 Reboot: Just a quick reboot / refresher for python
+v0 Reboot: Just a quick reboot / refresher for python
+--v1 Basic Pong: Created pong folder, made basic pong_main shows the following
+                    - 2 respective pads to signify the "paddle"
+                    - 1 circle in the middle to signify the "ball"
+
+
+
+
