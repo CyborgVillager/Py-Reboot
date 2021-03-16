@@ -8,6 +8,11 @@ window.bgcolor("black")
 window.setup(width=800, height=600)
 window.tracer(0)
 
+
+# Score
+score_a = 0
+score_b = 0
+
 # Pad 0 Info Start
 pad_0 = turtle.Turtle()
 pad_0.speed(0)
@@ -18,6 +23,36 @@ pad_0.penup()
 pad_0.goto(-350, 0)
 # Pad 0 Info End
 
+# Pen ScoreBoard
+pen = turtle.Turtle()
+pen.speed(0)
+pen.color("white")
+pen.penup()
+pen.hideturtle()
+pen.goto(0,260)
+pen.write("Player 1: 0 Player 2: 0", align="center", font=("Courier",24,"normal"))
+
+# Pad 1 Info Start
+pad_1 = turtle.Turtle()
+pad_1.speed(0)
+pad_1.shape("square")
+pad_1.color("green")
+pad_1.shapesize(stretch_wid=5, stretch_len=1)
+pad_1.penup()
+pad_1.goto(350, 0)
+# Pad 1 Info End
+
+# Ball Info Start
+ball = turtle.Turtle()
+ball.speed(0)
+ball.shape("circle")
+ball.color("yellow")
+ball.penup()
+ball.goto(0, 0)
+ball.changex = .3 # ball speed moves by 2 pixels on x cord
+ball.changey = -.3 # ball speed moves by 2 pixels on y cord
+
+# Ball Info End
 
 
 # MOVEMENT INFORMATION BEGINS
@@ -58,27 +93,6 @@ def pad_1_down():
 # Pad 1 Movement End
 # MOVEMENT INFORMATION ENDS
 
-# Pad 1 Info Start
-pad_1 = turtle.Turtle()
-pad_1.speed(0)
-pad_1.shape("square")
-pad_1.color("green")
-pad_1.shapesize(stretch_wid=5, stretch_len=1)
-pad_1.penup()
-pad_1.goto(350, 0)
-# Pad 1 Info End
-
-# Ball Info Start
-ball = turtle.Turtle()
-ball.speed(0)
-ball.shape("circle")
-ball.color("yellow")
-ball.penup()
-ball.goto(0, 0)
-ball.changex = .3 # ball moves by 2 pixels on x cord
-ball.changey = -.3 # ball moves by 2 pixels on y cord
-
-# Ball Info End
 
 # Keyboard Binds
 window.listen()
@@ -108,6 +122,34 @@ while True:
     if ball.xcor() < -390:
         ball.goto(0, 0)
         ball.changex *= -1
+
+
+
+    # Left and right
+    if ball.xcor() > 350:
+        score_a += 1
+        pen.clear()
+        pen.write("Player 1: {}  Player 2: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
+        ball.goto(0, 0)
+        ball.changex *= -1
+
+    elif ball.xcor() < -350:
+        score_b += 1
+        pen.clear()
+        pen.write("Player 1: {}  Player 2: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
+        ball.goto(0, 0)
+        ball.changex *= -1
+
+    # Pads / Ball Collision
+    # Pad 0
+    if (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() < pad_0 .ycor() + 40 and ball.ycor() > pad_0 .ycor() - 40):
+        ball.setx(-340)  # if ball ends up behind paddle, put it in front right away to prevent getting stuck
+        ball.changex *= -1
+    # Pad 1
+    if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < pad_1.ycor() + 40 and ball.ycor() > pad_1.ycor() - 40):
+        ball.setx(340)  # if ball ends up behind paddle, put it in front right away to prevent getting stuck
+        ball.changex *= -1
+
 
 
 
