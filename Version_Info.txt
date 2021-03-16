@@ -21,7 +21,12 @@ v1 Basic Pong: Created pong folder, made basic pong_main shows the following
 v1.5 Credit: Credit info for code to https://github.com/PSAB/pong-game/blob/master/Pong1.py
                 aka https://github.com/PSAB on basic tutorial making an interactive game of a classic
 
---v2 Updated / func: added func for shortcut/ease for readability to an extent
+v2 Updated / func: added func for shortcut/ease for readability to an extent
+
+--v3 Reformat: removed function to enable feature for movement, added comments for more information/ their
+                respective function for the pong game. Ball is now enabled to move as well as the pads 0 & 1,
+                pad 0 movement : w & s , pad 1 movement : up & down key
+
 
 
 
